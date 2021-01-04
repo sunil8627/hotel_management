@@ -26,11 +26,13 @@
     <%= form.text_field :ID_card_no %>
   </div>
 
+<% if customer.new_record? %>
   <div class="field">
     Check-in into
     <%= form.label :room_id %>
     <%= form.select :room_id, options_from_collection_for_select(@available_rooms, :id, :room_no) %>
   </div>
+<% end %>  
 
   <!-- <div class="field">
     <%= form.label :check_in_at %>

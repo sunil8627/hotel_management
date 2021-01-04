@@ -1,8 +1,8 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :check_out]
   before_action :get_rooms, only:[:new, :edit]
 
-  after_action :update_check_in_and_mark_room_occupied, only: [:create, :update]
+  after_action :update_check_in_and_mark_room_occupied, only: [:create]
 
   # GET /customers
   # GET /customers.json
@@ -13,6 +13,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+
   end
 
   # GET /customers/new
@@ -64,6 +65,14 @@ class CustomersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def check_out
+   @customer.update_attribute("check_out_at", Time.now)
+   @customer.room.update_attribute("is_occupied", false)
+   @customer.room = nil
+
+   redirect_to customers_url, notice: 'Customer was successfully checked out from room.'
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.

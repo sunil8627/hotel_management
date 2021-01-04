@@ -6,13 +6,13 @@
 </p>
 
 <p>
-  <strong>Is occupied:</strong>
-  <%= @room.is_occupied %>
+  <strong>Availability:</strong>
+  <%= @room.is_occupied == true ?  "Occupied" : "Available" %>
 </p>
 
 <p>
   <strong>Room type:</strong>
-  <%= @room.room_type_id %>
+  <%= @room.room_type.name %>
 </p>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
