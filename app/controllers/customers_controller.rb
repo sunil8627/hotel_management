@@ -1,5 +1,8 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :get_rooms, only:[:new, :edit]
+
+  after_action :update_check_in_and_mark_room_occupied, only: [:create, :update]
 
   # GET /customers
   # GET /customers.json
@@ -25,6 +28,7 @@ class CustomersController < ApplicationController
   # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
+    @customer.check_in_at = Time.now
 
     respond_to do |format|
       if @customer.save
@@ -66,6 +70,15 @@ class CustomersController < ApplicationController
     def set_customer
       @customer = Customer.find(params[:id])
     end
+
+    def get_rooms
+      @available_rooms = Room.where(is_occupied: false)  
+    end  
+
+    def update_check_in_and_mark_room_occupied
+      selected_room = Room.find params["customer"]["room_id"]
+      selected_room.update_attribute("is_occupied", true)  
+    end  
 
     # Only allow a list of trusted parameters through.
     def customer_params

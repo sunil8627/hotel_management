@@ -27,19 +27,20 @@
   </div>
 
   <div class="field">
+    Check-in into
     <%= form.label :room_id %>
-    <%= form.number_field :room_id %>
+    <%= form.select :room_id, options_from_collection_for_select(@available_rooms, :id, :room_no) %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :check_in_at %>
     <%= form.datetime_select :check_in_at %>
-  </div>
+  </div> -->
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :check_out_at %>
     <%= form.datetime_select :check_out_at %>
-  </div>
+  </div> -->
 
   <div class="actions">
     <%= form.submit %>
