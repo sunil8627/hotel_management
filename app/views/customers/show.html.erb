@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @customer.age %>
+</p>
+
+<p>
+  <strong>Id card no:</strong>
+  <%= @customer.ID_card_no %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @customer.room_id %>
+</p>
+
+<p>
+  <strong>Check in at:</strong>
+  <%= @customer.check_in_at %>
+</p>
+
+<p>
+  <strong>Check out at:</strong>
+  <%= @customer.check_out_at %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

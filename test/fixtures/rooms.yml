@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room_no: 1
+  is_occupied: false
+  room_type_id: 1
+
+two:
+  room_no: 1
+  is_occupied: false
+  room_type_id: 1
