@@ -1,8 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy, :check_out]
-  before_action :get_rooms, only:[:new, :edit]
-
-  after_action :update_check_in_and_mark_room_occupied, only: [:create]
+  before_action :get_rooms, only:[:new, :edit, :create]
 
   # GET /customers
   # GET /customers.json
@@ -73,6 +71,11 @@ class CustomersController < ApplicationController
 
    redirect_to customers_url, notice: 'Customer was successfully checked out from room.'
   end  
+
+  def search
+    @name = params["name"]
+    @matching_customers = Customer.where("name like ?", "%#{@name}%") unless @name.blank?
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.

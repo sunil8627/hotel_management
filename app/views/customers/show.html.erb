@@ -30,8 +30,8 @@
   <%= @customer.check_out_at %>
 </p>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %> |
+<%= link_to 'Edit Attributes', edit_customer_path(@customer), :class=>"btn btn-success" %> 
 <% if @customer.check_out_at.blank? %>
- <%= link_to 'Check out', check_out_customer_path(@customer) %> |
+ | <%= link_to 'Check out', check_out_customer_path(@customer), :class=>"btn btn-warning" %>
 <% end %>
-<%= link_to 'Back', customers_path %>

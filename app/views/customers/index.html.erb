@@ -24,11 +24,11 @@
         <td><%= customer.room.room_no %></td>
         <td><%= customer.check_in_at %></td>
         <td><%= customer.check_out_at %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td> 
+        <td><%= link_to 'Show', customer, :class=>"btn btn-primary" %></td>
+        <td><%= link_to 'Edit attributes', edit_customer_path(customer), :class=>"btn btn-success" %></td> 
         <td>
           <% if customer.check_out_at.blank? %>
-           <%= link_to 'Check out', check_out_customer_path(customer) %>
+           <%= link_to 'Check out', check_out_customer_path(customer), :class=>"btn btn-warning" %>
           <% end %> 
         </td>
       </tr>

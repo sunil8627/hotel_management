@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
-  before_action :get_room_types, only:[:new, :edit]
+  before_action :get_room_types, only:[:new, :edit, :create]
 
   # GET /rooms
   # GET /rooms.json

@@ -18,6 +18,27 @@
 
   <body class="container-fluid">
     <h1> Hotel management </h1>
+
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/room_types">Manage Room types</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/rooms">Manage all Rooms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/rooms/available">View available rooms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/customers">Manage/ Check-in Customers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/find_customers">Find customers</a>
+        </li>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
