@@ -30,7 +30,7 @@
   <div class="field">
     Check-in into
     <%= form.label :room_id %>
-    <%= form.select :room_id, options_from_collection_for_select(@available_rooms, :id, :room_no) %>
+    <%= form.select :room_id, options_from_collection_for_select(@available_rooms, :id, :room_no) unless @available_rooms.blank? %>
   </div>
 <% end %>  
 

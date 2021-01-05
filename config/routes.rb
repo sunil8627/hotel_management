@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   	  get 'check_out'
   	end  	
   end	
-  resources :rooms
+
+  resources :rooms do
+  	collection do
+  	  get 'available'
+  	end
+  end	  	
+
   resources :room_types
 
 

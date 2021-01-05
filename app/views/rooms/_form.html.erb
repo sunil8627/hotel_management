@@ -16,14 +16,14 @@
     <%= form.number_field :room_no %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :is_occupied %>
     <%= form.check_box :is_occupied %>
-  </div>
+  </div> -->
 
   <div class="field">
     <%= form.label :room_type_id %>
-    <%= form.number_field :room_type_id %>
+    <%= form.select :room_type_id, options_from_collection_for_select(@room_types, :id, :name) unless @room_types.blank? %>
   </div>
 
   <div class="actions">

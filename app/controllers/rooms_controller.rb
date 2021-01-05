@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :get_room_types, only:[:new, :edit]
 
   # GET /rooms
   # GET /rooms.json
@@ -25,6 +26,7 @@ class RoomsController < ApplicationController
   # POST /rooms.json
   def create
     @room = Room.new(room_params)
+    @room.is_occupied = false
 
     respond_to do |format|
       if @room.save
@@ -61,11 +63,19 @@ class RoomsController < ApplicationController
     end
   end
 
+  def available
+   @available_rooms = Room.where(is_occupied: false)
+  end  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = Room.find(params[:id])
     end
+
+    def get_room_types
+      @room_types = RoomType.all  
+    end 
 
     # Only allow a list of trusted parameters through.
     def room_params

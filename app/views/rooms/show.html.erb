@@ -15,5 +15,10 @@
   <%= @room.room_type.name %>
 </p>
 
+<p>
+  <strong>Room Price:</strong>
+  <%= @room.room_type.price %>
+</p>
+
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
